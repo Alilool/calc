@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-color: #49577e;
+        }
+
+        .UserInput {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5vh;
+        }
+
+        input {
+            background-color: #EAE3DB;
+            text-align: center;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bolder;
+            width: 90%;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #D13F30;
+            color: white;
+            border-radius: 5px;
+            margin-top: 3px;
+            font-family: sans-serif;
+            border: none;
+            padding: 2px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 0.5fr 2fr 1fr;
+            background-color: #2c3552;
+            padding: 20px;
+            border-radius: 0 0 7px 7px;
+        }
+
+        h3 {
+            text-align: right;
+            background-color: rgb(26, 35, 60);
+            padding: 20px;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+            font-family: monospace;
+            border-radius: 7px 7px 0 0;
+            margin: 0;
+        }
+
+        .clear {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20px;
+            margin-top: 7px;
+        }
+
+        .calc {
+            margin: auto;
+            margin-top: 30vh;
+        }
+
+        button:hover {
+            background-color: #9a3024;
+            cursor: pointer;
+        }
+
+        @media (min-width: 550px) {
+            .calc {
+                width: 550px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calc">
+        <h3 id="result">0</h3>
+        <div class="container">
+            <button class="clear" onclick="Clear()">Clear</button>
+            <div class="UserInput">
+                <input type="text" placeholder="0" id="num1">
+                <input type="text" placeholder="0" id="num2">
+            </div>
+            <div class="buttons">
+                <button onclick="add()">Add (+)</button>
+                <button onclick="sub()">Subtract (-)</button>
+                <button onclick="multiply()">Multiply (×)</button>
+                <button onclick="Divid()">Divide (÷)</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function add() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = num1 + num2;
+            document.getElementById("result").innerHTML = result
+        }
+
+        function sub() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = num1 - num2;
+            document.getElementById("result").innerHTML = result
+        }
+
+        function multiply() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = num1 * num2;
+            document.getElementById("result").innerHTML = result
+        }
+
+        function Divid() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result = num1 / num2;
+            document.getElementById("result").innerHTML = result
+        }
+
+        function Clear() {
+            let clear_input = document.getElementById("num1")
+            let clear_input2 = document.getElementById("num2")
+            clear_input.value = ""
+            clear_input2.value = ""
+            document.getElementById("result").innerHTML = "0";
+        }
+    </script>
+</body>
+
+</html>
